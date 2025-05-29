@@ -1,2 +1,74 @@
-# Nunacademy.pay
-IT Team 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Freezing...</title>
+  <style>
+    * {
+      cursor: wait !important;
+      user-select: none;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #freeze-message {
+      text-align: center;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* Disable mouse/keyboard */
+    #blocker {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: transparent;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div id="blocker"></div>
+
+  <div id="freeze-message">
+    <p>⚠️ System is not responding</p>
+    <p>CPU 100% | Memory Leak Detected</p>
+    <p>Attempting Auto-Recovery...</p>
+  </div>
+
+  <script>
+    // Block keyboard input
+    window.addEventListener("keydown", function(e) {
+      e.preventDefault();
+    });
+
+    // Block right-click
+    window.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+    });
+
+    // Optional: loop sound for dramatic effect
+    // let audio = new Audio("https://www.soundjay.com/button/beep-07.wav");
+    // audio.loop = true;
+    // audio.play();
+  </script>
+</body>
+</html>
+
+
